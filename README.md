@@ -1,35 +1,34 @@
-# portfolio
+# Portfolio
 
-이 프로젝트는 기존의 Notion DB 연결 사이트 레이아웃을 유지하면서, GitHub Pages에 배포할 수 있도록 바꾼 버전입니다.
-
-브라우저가 직접 Notion API를 호출하지 않고, GitHub Actions가 배포 시점에 Notion 데이터를 가져와 `data/notion-boxes.json`을 생성합니다. 그래서 토큰이 프론트엔드에 노출되지 않습니다.
+정적 포트폴리오 사이트입니다. GitHub Pages에 바로 배포할 수 있도록 구성했습니다.
 
 ## Local Preview
 
-정적 파일 프리뷰:
+정적 파일이라서 아무 서버로나 열 수 있습니다.
 
 ```bash
 python3 -m http.server 3000
 ```
 
-그 다음 `http://localhost:3000`에서 확인할 수 있습니다.
+또는 VS Code Live Server 같은 정적 서버를 사용해도 됩니다.
 
-## GitHub Pages + Notion 연결
+## Deploy to GitHub Pages
 
-GitHub 저장소 `Settings > Secrets and variables > Actions`에 아래 시크릿을 추가하세요.
+1. 이 내용을 `https://github.com/hy0909/portfolio` 저장소에 푸시합니다.
+2. GitHub 저장소의 `Settings > Pages`로 이동합니다.
+3. `Build and deployment`에서 `Deploy from a branch`를 선택합니다.
+4. 브랜치는 `main`, 폴더는 `/ (root)`를 선택합니다.
+5. 저장 후 배포가 완료되면 프로젝트 사이트 URL이 생성됩니다.
 
-- `NOTION_TOKEN`
-- `NOTION_DATABASE_ID`
+프로젝트 저장소이므로 일반적으로 주소는 아래 형태입니다.
 
-Notion 데이터베이스는 아래 속성을 기준으로 읽습니다.
+`https://hy0909.github.io/portfolio/`
 
-- `title` : `Title`
-- `body` : `Text`
-- `date` : `Date`
-- `img` : `Files & media`
+## Figma MCP Workflow
 
-배포 워크플로가 실행되면 `scripts/fetch-notion.mjs`가 Notion 데이터를 읽어 정적 JSON 파일을 생성하고, 그 결과물이 GitHub Pages에 배포됩니다.
+Figma MCP는 현재 연결 가능한 상태입니다. 다음 중 하나를 주면 화면을 더 정확하게 구현할 수 있습니다.
 
-## Figma MCP
+- Figma 파일 URL
+- 특정 프레임 또는 노드 URL
 
-Figma MCP는 연결 가능한 상태입니다. 1주일 뒤 Figma 파일 URL이나 특정 노드 URL을 주면, 현재 이 노션 기반 레이아웃을 유지하거나 확장하는 방식으로 정확히 맞춤 구현할 수 있습니다.
+그 링크를 받으면 디자인 구조를 읽고, 현재 사이트를 그 시안 기준으로 맞춰 수정할 수 있습니다.

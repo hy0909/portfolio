@@ -1,5 +1,0 @@
-{
-  "items": [],
-  "configured": false,
-  "message": "Missing NOTION_TOKEN or NOTION_DATABASE_ID in GitHub Actions secrets."
-}
