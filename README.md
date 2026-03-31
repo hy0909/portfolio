@@ -1,6 +1,6 @@
 # Portfolio
 
-정적 포트폴리오 사이트입니다. GitHub Pages에 바로 배포할 수 있도록 구성했습니다.
+정적 포트폴리오 사이트입니다. GitHub Pages에 배포되며, GitHub Actions가 Notion DB를 읽어 `data/notion-boxes.json`을 갱신한 뒤 사이트를 다시 배포합니다.
 
 ## Local Preview
 
@@ -12,13 +12,35 @@ python3 -m http.server 3000
 
 또는 VS Code Live Server 같은 정적 서버를 사용해도 됩니다.
 
+## Notion Auto Sync
+
+다음 GitHub Secrets가 필요합니다.
+
+- `NOTION_TOKEN`
+- `NOTION_DATABASE_ID`
+
+노션 DB는 아래 컬럼을 기준으로 읽습니다.
+
+- `title`
+- `summation`
+- `body`
+- `date`
+- `img`
+- `project` 또는 `slot`
+
+자동 반영 방식:
+
+- `main` 브랜치에 푸시할 때 즉시 배포
+- 추가로 15분마다 자동으로 Notion을 다시 읽고 재배포
+
+즉, 노션을 수정하면 최대 약 15분 안에 웹사이트에 반영됩니다.
+
 ## Deploy to GitHub Pages
 
 1. 이 내용을 `https://github.com/hy0909/portfolio` 저장소에 푸시합니다.
-2. GitHub 저장소의 `Settings > Pages`로 이동합니다.
-3. `Build and deployment`에서 `Deploy from a branch`를 선택합니다.
-4. 브랜치는 `main`, 폴더는 `/ (root)`를 선택합니다.
-5. 저장 후 배포가 완료되면 프로젝트 사이트 URL이 생성됩니다.
+2. GitHub 저장소의 `Settings > Pages`에서 GitHub Actions 배포가 허용되어 있어야 합니다.
+3. 저장소의 `Settings > Secrets and variables > Actions`에 Notion 시크릿을 넣습니다.
+4. `main`에 푸시하면 배포가 시작됩니다.
 
 프로젝트 저장소이므로 일반적으로 주소는 아래 형태입니다.
 
