@@ -3,105 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HY Portfolio</title>
-    <meta
-      name="description"
-      content="Designer and maker portfolio for product, visual storytelling, and frontend implementation."
-    />
+    <title>Minji Oh Portfolio</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <div class="page-shell">
-      <header class="hero">
-        <p class="eyebrow">Portfolio / 2026</p>
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="kicker">Kim HY</p>
-            <h1>디자인의 결을 웹으로<br />정확하게 옮기는 포트폴리오</h1>
-            <p class="hero-text">
-              제품 경험을 설계하고, 시각적 아이디어를 인터랙션으로 연결합니다. Figma에서
-              만든 화면을 실제 브라우저 문법으로 번역해 사용자에게 닿는 결과물까지
-              완성합니다.
-            </p>
+  <body class="portfolio-home">
+    <div class="site-shell">
+      <aside class="rail">
+        <div class="rail-card brand-card">
+          <p class="eyebrow">Portfolio</p>
+          <h1>한 명의 제작자와 두 개의 프로젝트를 담은 포트폴리오.</h1>
+          <p class="lede">
+            참고한 Cargo 페이지의 고정 정보 패널과 긴 스크롤 리듬은 유지하되, 더 얇은 위계와 섬세한 여백, 절제된 카드 구조로 다시 다듬었습니다.
+          </p>
+          <div class="rail-actions">
+            <a class="button button-primary" href="#projects">프로젝트 보기</a>
+            <a class="button button-ghost" href="mailto:studio@test.com">문의하기</a>
           </div>
-
-          <aside class="hero-card">
-            <p><strong>Focus</strong></p>
-            <p>Product Design / Visual System / Frontend Implementation</p>
-            <p><strong>Based In</strong></p>
-            <p>Seoul</p>
-            <p><strong>Now Building</strong></p>
-            <p>Personal portfolio site connected to Figma MCP workflow.</p>
-          </aside>
         </div>
-      </header>
 
-      <main>
-        <section class="intro panel">
+        <article class="rail-card profile-card">
+          <div class="profile-header">
+            <div class="avatar avatar-mina">MJ</div>
+            <div>
+              <p class="eyebrow">Creator Profile</p>
+              <h2>민지 오</h2>
+            </div>
+          </div>
+          <ul class="meta-list">
+            <li><span>연차</span><strong>7년차</strong></li>
+            <li><span>회사(소속)</span><strong>Object Form</strong></li>
+            <li><span>소개</span><strong>브랜드의 감도를 디지털 화면으로 번역하는 디자이너</strong></li>
+          </ul>
+          <div class="separator"></div>
+          <div class="experience">
+            <div class="experience-item">
+              <div class="experience-head">
+                <span class="badge">2024</span>
+                <a href="./project-aurora.html">Project Aurora</a>
+              </div>
+              <p>WebGL, Figma, Vercel</p>
+              <p class="muted">런칭 페이지와 인터랙티브 프로토타입을 함께 설계하고 프론트엔드 구현까지 주도했습니다.</p>
+            </div>
+            <div class="experience-item">
+              <div class="experience-head">
+                <span class="badge">2023</span>
+                <a href="./project-lattice.html">Project Lattice</a>
+              </div>
+              <p>Next.js, Notion API, GSAP</p>
+              <p class="muted">콘텐츠 중심 포트폴리오 시스템을 제작하고 에디토리얼 흐름을 정의했습니다.</p>
+            </div>
+          </div>
+        </article>
+      </aside>
+
+      <main class="content" id="projects">
+        <section class="section-heading">
+          <p class="eyebrow">Selected Projects</p>
           <div>
-            <p class="section-label">About</p>
-            <p class="section-body">
-              브랜드 감각이 살아 있는 화면, 구조가 분명한 정보 설계, 실제 배포까지
-              이어지는 구현을 좋아합니다. 이 페이지는 GitHub Pages에 배포할 수 있도록
-              정적 사이트로 구성되어 있고, 이후 Figma 링크를 연결하면 해당 화면을
-              기준으로 섹션과 스타일을 더 정확히 맞춰갈 수 있습니다.
+            <h2>두 프로젝트를 같은 위계로 배치하고, 상세에서 더 길게 풀어내는 구조입니다.</h2>
+            <p class="section-copy">
+              메인 화면 첫 뷰에서 썸네일 두 개가 모두 보이도록 압축하고, 카드의 긴장감은 타이포와 비례로 만들었습니다.
             </p>
           </div>
-
-          <div class="info-grid">
-            <div>
-              <p class="info-label">Strength</p>
-              <p>레이아웃 감도, 명확한 카피 구조, 디자인-개발 간 번역</p>
-            </div>
-            <div>
-              <p class="info-label">Workflow</p>
-              <p>Figma, design system thinking, responsive web implementation</p>
-            </div>
-            <div>
-              <p class="info-label">Contact</p>
-              <p><a href="mailto:pongg005@naver.com">pongg005@naver.com</a></p>
-            </div>
-            <div>
-              <p class="info-label">Links</p>
-              <p><a href="https://github.com/hy0909">GitHub</a></p>
-            </div>
-          </div>
         </section>
 
-        <section class="work-section">
-          <div class="section-heading">
-            <p class="section-label">Selected Work</p>
-            <h2>최근 작업과 만들고 싶은 방향</h2>
-          </div>
-          <section id="project-grid" class="project-grid" aria-live="polite"></section>
-        </section>
-
-        <section class="process-grid">
-          <article class="panel">
-            <p class="section-label">Process</p>
-            <h2>Figma에서 웹 구현까지</h2>
-            <ol class="steps">
-              <li>핵심 화면과 컴포넌트를 정의하고, 정보 우선순위를 분해합니다.</li>
-              <li>반응형 레이아웃과 토큰을 정리해 브라우저 문법으로 옮깁니다.</li>
-              <li>인터랙션과 카피를 조정하며 실제 사용 맥락에 맞게 다듬습니다.</li>
-            </ol>
+        <section class="project-grid">
+          <article class="project-card" data-project-slot="project1">
+            <a class="project-thumb thumb-aurora" href="./project-aurora.html" aria-label="Project Aurora detail"></a>
+            <div class="project-body">
+              <div class="project-topline">
+                <span class="badge">Project 01</span>
+                <span class="tiny">2024</span>
+              </div>
+              <h2 data-field="title">Project Aurora</h2>
+              <p data-field="summation">
+                전시형 브랜드의 디지털 쇼케이스. 큰 비주얼과 정교한 텍스트 리듬을 결합해 조용하지만 밀도 높은 첫인상을 목표로 했습니다.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Brand Platform</span>
+                <span class="tag">3D Motion</span>
+                <span class="tag">Editorial Layout</span>
+              </div>
+              <a class="button button-secondary" href="./project-aurora.html">상세 보기</a>
+            </div>
           </article>
 
-          <article class="panel accent-panel">
-            <p class="section-label">Next Step</p>
-            <h2>Figma MCP Ready</h2>
-            <p class="section-body">
-              Figma 파일 또는 특정 노드 URL을 주면, 현재 페이지를 그 시안 기준으로
-              다시 설계하고 세부 스타일과 컴포넌트 구조를 맞춰 구현할 수 있습니다.
-            </p>
+          <article class="project-card" data-project-slot="project2">
+            <a class="project-thumb thumb-lattice" href="./project-lattice.html" aria-label="Project Lattice detail"></a>
+            <div class="project-body">
+              <div class="project-topline">
+                <span class="badge">Project 02</span>
+                <span class="tiny">2025</span>
+              </div>
+              <h2 data-field="title">Project Lattice</h2>
+              <p data-field="summation">
+                리서치와 아카이브를 한 화면에 수용하는 포트폴리오 시스템. 스크롤이 길어질수록 오히려 정보 위계가 또렷해지도록 설계했습니다.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Content System</span>
+                <span class="tag">CMS Integration</span>
+                <span class="tag">Readable Motion</span>
+              </div>
+              <a class="button button-secondary" href="./project-lattice.html">상세 보기</a>
+            </div>
           </article>
         </section>
       </main>
-
-      <footer class="footer">
-        <p>Built for GitHub Pages.</p>
-        <p>Designed to evolve with Figma MCP.</p>
-      </footer>
     </div>
 
     <script type="module" src="./main.js"></script>
