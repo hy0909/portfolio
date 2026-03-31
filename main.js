@@ -49,6 +49,7 @@ function hydrateProjectCards(items) {
 
     const titleNode = card.querySelector('[data-field="title"]');
     const summationNode = card.querySelector('[data-field="summation"]');
+    const dateNode = card.querySelector('[data-field="date"]');
 
     if (titleNode && item.title) {
       titleNode.textContent = item.title;
@@ -56,6 +57,10 @@ function hydrateProjectCards(items) {
 
     if (summationNode && item.summation) {
       summationNode.textContent = item.summation;
+    }
+
+    if (dateNode && item.date) {
+      dateNode.textContent = item.date;
     }
   }
 }
