@@ -24,12 +24,16 @@ function hydrateProjectCards(items) {
   };
 
   for (const item of items) {
-    if (item.slot === "project1" || item.slot === "project2") {
-      mapped[item.slot] = item;
+    const normalizedSlot = normalizeSlot(item.slot);
+    if (normalizedSlot === "project1" || normalizedSlot === "project2") {
+      mapped[normalizedSlot] = item;
     }
   }
 
-  const fallbacks = items.filter((item) => item.slot !== "project1" && item.slot !== "project2");
+  const fallbacks = items.filter((item) => {
+    const normalizedSlot = normalizeSlot(item.slot);
+    return normalizedSlot !== "project1" && normalizedSlot !== "project2";
+  });
   if (!mapped.project1 && fallbacks[0]) {
     mapped.project1 = fallbacks[0];
   }
@@ -70,6 +74,12 @@ function hydrateProjectCards(items) {
         .join("");
     }
   }
+}
+
+function normalizeSlot(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replaceAll(/\s+/g, "");
 }
 
 function escapeHtml(value) {
