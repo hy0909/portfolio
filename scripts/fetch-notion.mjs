@@ -76,7 +76,7 @@ function mapNotionPage(page) {
     title: readPlainText(titleProperty) || "Untitled",
     summation: readPlainText(summationProperty),
     body: readRichText(bodyProperty),
-    date: formatDate(readDate(dateProperty)),
+    date: formatDateRange(readDateRange(dateProperty)),
     imageUrl: readFiles(imageProperty),
     slot: (readPlainText(slotProperty) || readPlainText(altSlotProperty)).toLowerCase(),
   };
@@ -128,29 +128,69 @@ function readRichText(property) {
   return property.rich_text.map((item) => item.plain_text).join("");
 }
 
-function readDate(property) {
-  if (!property || property.type !== "date" || !property.date || !property.date.start) {
-    return "";
+function readDateRange(property) {
+  if (!property) {
+    return null;
   }
 
-  return property.date.start;
+  if (property.type === "date" && property.date && property.date.start) {
+    return {
+      start: property.date.start,
+      end: property.date.end || "",
+    };
+  }
+
+  if (property.type === "formula" && property.formula?.type === "date" && property.formula.date?.start) {
+    return {
+      start: property.formula.date.start,
+      end: property.formula.date.end || "",
+    };
+  }
+
+  if (property.type === "rich_text") {
+    const text = readRichText(property).trim();
+    if (text) {
+      return {
+        start: text,
+        end: "",
+        raw: true,
+      };
+    }
+  }
+
+  return null;
 }
 
-function formatDate(value) {
-  if (!value) {
+function formatDateRange(value) {
+  if (!value || !value.start) {
     return "";
   }
 
+  if (value.raw) {
+    return value.start;
+  }
+
+  const start = formatDateValue(value.start);
+  const end = value.end ? formatDateValue(value.end) : "";
+
+  if (!end) {
+    return start;
+  }
+
+  return `${start} ~ ${end}`;
+}
+
+function formatDateValue(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) {
     return value;
   }
 
-  return new Intl.DateTimeFormat("ko-KR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(date);
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const year = String(date.getFullYear());
+
+  return `${month}/${day}/${year}`;
 }
 
 function readFiles(property) {
