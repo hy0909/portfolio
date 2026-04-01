@@ -50,6 +50,7 @@ function hydrateProjectCards(items) {
     const titleNode = card.querySelector('[data-field="title"]');
     const summationNode = card.querySelector('[data-field="summation"]');
     const dateNode = card.querySelector('[data-field="date"]');
+    const tagsNode = card.querySelector('[data-field="tags"]');
 
     if (titleNode && item.title) {
       titleNode.textContent = item.title;
@@ -59,10 +60,25 @@ function hydrateProjectCards(items) {
       summationNode.textContent = item.summation;
     }
 
-    if (dateNode && item.date) {
-      dateNode.textContent = item.date;
+    if (dateNode) {
+      dateNode.textContent = item.date || "";
+    }
+
+    if (tagsNode && Array.isArray(item.tags) && item.tags.length > 0) {
+      tagsNode.innerHTML = item.tags
+        .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
+        .join("");
     }
   }
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 loadProjects();

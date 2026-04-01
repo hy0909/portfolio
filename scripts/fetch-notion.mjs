@@ -68,6 +68,7 @@ function mapNotionPage(page) {
   const bodyProperty = findPropertyByName(properties, "body");
   const dateProperty = findPropertyByName(properties, "date");
   const imageProperty = findPropertyByName(properties, "img");
+  const tagsProperty = findPropertyByName(properties, "tags");
   const slotProperty = findPropertyByName(properties, "project");
   const altSlotProperty = findPropertyByName(properties, "slot");
 
@@ -78,6 +79,7 @@ function mapNotionPage(page) {
     body: readRichText(bodyProperty),
     date: formatDateRange(readDateRange(dateProperty)),
     imageUrl: readFiles(imageProperty),
+    tags: readTags(tagsProperty),
     slot: (readPlainText(slotProperty) || readPlainText(altSlotProperty)).toLowerCase(),
   };
 }
@@ -208,6 +210,34 @@ function readFiles(property) {
   }
 
   return "";
+}
+
+function readTags(property) {
+  if (!property) {
+    return [];
+  }
+
+  if (property.type === "multi_select") {
+    return property.multi_select.map((item) => item.name).filter(Boolean);
+  }
+
+  if (property.type === "rich_text") {
+    return property.rich_text
+      .map((item) => item.plain_text)
+      .join(",")
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  if (property.type === "formula" && property.formula?.type === "string" && property.formula.string) {
+    return property.formula.string
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  return [];
 }
 
 async function writePayload(payload) {
