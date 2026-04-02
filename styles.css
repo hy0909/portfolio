@@ -354,6 +354,71 @@ h3 {
   gap: 24px;
 }
 
+.detail-hero-dynamic .detail-hero-copy {
+  max-width: 920px;
+}
+
+.detail-meta-panel .tag-row {
+  gap: 8px;
+}
+
+.detail-sequence {
+  gap: 28px;
+}
+
+.detail-block {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.detail-block[hidden] {
+  display: none;
+}
+
+.detail-block-hero {
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.78fr);
+}
+
+.detail-block-split {
+  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.25fr);
+}
+
+.detail-block-feature {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+}
+
+.detail-copy-card {
+  min-height: 100%;
+}
+
+.detail-copy-card-narrow {
+  max-width: 620px;
+}
+
+.detail-image-panel {
+  min-height: 720px;
+  background-size: cover;
+  background-position: center;
+}
+
+.detail-image-panel.is-notion-image {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.detail-body {
+  white-space: pre-wrap;
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.88;
+}
+
+.detail-body-large {
+  font-size: clamp(1.12rem, 1.35vw, 1.32rem);
+  line-height: 1.9;
+  letter-spacing: -0.015em;
+}
+
 .story-block {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
@@ -404,6 +469,7 @@ h3 {
 @media (max-width: 1100px) {
   .site-shell,
   .detail-hero,
+  .detail-block,
   .story-block,
   .story-block.reverse,
   .section-heading,
@@ -438,6 +504,10 @@ h3 {
 
   .story-image {
     min-height: 280px;
+  }
+
+  .detail-image-panel {
+    min-height: 340px;
   }
 }
 

@@ -3,84 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Lattice</title>
+    <title>Project 02 Detail</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="project-detail lattice-page">
+  <body class="project-detail detail-template" data-project-slot="project2">
     <div class="detail-shell">
-      <header class="detail-hero">
+      <header class="detail-hero detail-hero-dynamic">
         <a class="back-link" href="./index.html">← 메인으로</a>
         <div class="detail-hero-copy">
-          <p class="eyebrow">Project 02 / 2025</p>
-          <h1>Project Lattice</h1>
-          <p class="lede">
-            콘텐츠 CMS와 포트폴리오 프론트엔드를 연결한 프로젝트. 이미지보다 구조를 먼저 읽히게 만드는 페이지로, 큰 썸네일과 긴 설명 사이의 긴장을 유지하는 데 집중했습니다.
+          <p class="eyebrow" data-detail-field="project">Project 02</p>
+          <h1 data-detail-field="title">Project Title</h1>
+          <p class="lede" data-detail-field="intro">
+            프로젝트 소개 문장이 이 자리에 들어옵니다.
           </p>
         </div>
-        <div class="hero-panel">
-          <span class="badge">Lead</span>
-          <p>민지 오</p>
-          <span class="badge">Stack</span>
-          <p>Next.js, Notion API, TypeScript</p>
+        <div class="hero-panel detail-meta-panel">
+          <span class="badge">Date</span>
+          <p data-detail-field="date">03/29/2026</p>
+          <span class="badge">Tags</span>
+          <div class="tag-row" data-detail-field="tags"></div>
         </div>
       </header>
 
-      <main class="detail-content">
-        <section class="story-block">
-          <div class="story-image image-lattice-large"></div>
-          <div class="story-copy">
-            <h2>콘텐츠가 주인공인 썸네일 설계.</h2>
-            <p>
-              메인에서는 두 프로젝트의 카드가 같은 크기와 같은 위계로 보여야 하므로, 썸네일 자체가 과도하게 눈에 띄기보다 제목과 메타가 함께 하나의 카드 시스템처럼 읽히도록 구성했습니다.
-            </p>
-            <p>
-              이 방식은 shadcn의 카드 패턴과 잘 맞습니다. 보더, 패딩, 라운드, 배지, 버튼의 언어가 일정하기 때문에 시선은 화려한 장식보다 구조를 먼저 따라갑니다.
-            </p>
+      <main class="detail-content detail-sequence">
+        <section class="detail-block detail-block-hero" data-detail-section="1">
+          <div class="story-image detail-image-panel" data-detail-image></div>
+          <div class="story-copy detail-copy-card">
+            <p class="eyebrow">Section 01</p>
+            <p class="detail-body detail-body-large" data-detail-body></p>
           </div>
         </section>
 
-        <section class="story-block reverse">
-          <div class="story-image image-lattice-diagram"></div>
-          <div class="story-copy">
-            <h2>읽는 흐름을 끊지 않는 상세 페이지.</h2>
-            <p>
-              본문 페이지는 큰 이미지 한 장과 텍스트가 계속 교차되는 구조입니다. 이미지가 장면을 정의하고, 텍스트가 맥락을 해석하며, 다음 이미지가 다시 리듬을 환기합니다. 이 반복이 길수록 프로젝트의 밀도가 설득력 있게 전달됩니다.
-            </p>
-            <p>
-              특히 우측 텍스트 카드의 폭을 제한하고 행간을 넉넉하게 둬서, 사용자가 긴 글을 읽어도 피곤하지 않도록 했습니다.
-            </p>
+        <section class="detail-block detail-block-split" data-detail-section="2">
+          <div class="story-copy detail-copy-card">
+            <p class="eyebrow">Section 02</p>
+            <p class="detail-body" data-detail-body></p>
           </div>
+          <div class="story-image detail-image-panel" data-detail-image></div>
         </section>
 
-        <section class="text-marathon">
-          <div class="long-copy-card">
-            <p class="eyebrow">System Thinking</p>
-            <h2>프로필, 썸네일, 상세를 하나의 언어로 연결하기.</h2>
-            <p>
-              이 포트폴리오는 단순히 프로젝트를 나열하는 사이트가 아니라, 제작자 프로필과 프로젝트 썸네일, 그리고 긴 본문 설명이 하나의 언어로 이어지도록 설계되어 있습니다. 메인에서 사용한 배지와 카드 스타일은 상세 페이지에서도 그대로 이어지고, 상세 페이지의 캡션 톤은 다시 메인의 소개 카드와 닮아 있습니다.
-            </p>
-            <p>
-              그래서 사용자는 페이지를 이동할 때 새로운 UI를 배우지 않아도 됩니다. 대신 같은 디자인 언어 안에서 정보의 깊이만 달라지는 경험을 하게 됩니다. 이것이 이번 구조가 가진 가장 중요한 장점입니다.
-            </p>
-            <p>
-              또한 긴 본문은 단순 설명이 아니라 제작자의 사고 과정을 보여주는 문서 역할을 합니다. 왜 이런 썸네일 크기를 선택했는지, 왜 두 프로젝트를 같은 위계로 두었는지, 왜 프로필 카드에 프로젝트 경험을 넣었는지 같은 결정이 문장으로 남아 있어야 포트폴리오가 더 설득력을 갖습니다.
-            </p>
-            <p>
-              결과적으로 이 사이트는 참고한 Cargo 템플릿보다 더 구조적이고, 동시에 더 제품화된 감각을 가집니다. 너무 동일하지 않지만 분명 같은 미학 계열에 놓여 있는 페이지라는 인상을 주는 것이 목표였습니다.
-            </p>
-          </div>
-        </section>
-
-        <section class="story-block">
-          <div class="story-image image-lattice-gallery"></div>
-          <div class="story-copy">
-            <h2>스크롤이 길어질수록 더 명확해지는 페이지.</h2>
-            <p>
-              마지막 섹션은 이미지를 다시 크게 확대해 마무리합니다. 이 장면은 앞에서 설명한 구조와 텍스트를 한 번 더 시각적으로 요약하는 역할을 합니다. 그래서 페이지 끝에 도달했을 때 단순한 피로감보다 완결감이 남습니다.
-            </p>
+        <section class="detail-block detail-block-feature" data-detail-section="3">
+          <div class="story-image detail-image-panel" data-detail-image></div>
+          <div class="story-copy detail-copy-card detail-copy-card-narrow">
+            <p class="eyebrow">Section 03</p>
+            <p class="detail-body" data-detail-body></p>
           </div>
         </section>
       </main>
     </div>
+
+    <script type="module" src="./detail.js"></script>
   </body>
 </html>

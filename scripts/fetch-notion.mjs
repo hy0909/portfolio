@@ -68,9 +68,16 @@ function mapNotionPage(page) {
   const bodyProperty = findPropertyByName(properties, "body");
   const dateProperty = findPropertyByName(properties, "date");
   const imageProperty = findPropertyByName(properties, "img");
+  const image1Property = findPropertyByName(properties, "img1");
+  const image2Property = findPropertyByName(properties, "img2");
+  const image3Property = findPropertyByName(properties, "img3");
+  const body1Property = findPropertyByName(properties, "body1");
+  const body2Property = findPropertyByName(properties, "body2");
+  const body3Property = findPropertyByName(properties, "body3");
   const tagsProperty = findPropertyByName(properties, "tags");
   const slotProperty = findPropertyByName(properties, "project");
   const altSlotProperty = findPropertyByName(properties, "slot");
+  const projectLabel = readPlainText(slotProperty) || readPlainText(altSlotProperty);
 
   return {
     id: page.id,
@@ -79,8 +86,15 @@ function mapNotionPage(page) {
     body: readRichText(bodyProperty),
     date: formatDateRange(readDateRange(dateProperty)),
     imageUrl: readFiles(imageProperty),
+    project: projectLabel,
+    img1: readFiles(image1Property) || readFiles(imageProperty),
+    body1: readRichText(body1Property),
+    img2: readFiles(image2Property),
+    body2: readRichText(body2Property),
+    img3: readFiles(image3Property),
+    body3: readRichText(body3Property),
     tags: readTags(tagsProperty),
-    slot: (readPlainText(slotProperty) || readPlainText(altSlotProperty)).toLowerCase(),
+    slot: projectLabel.toLowerCase(),
   };
 }
 
