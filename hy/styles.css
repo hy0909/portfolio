@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "Diatype Variable";
+  src: url("https://type.cargo.site/files/Cargo-DiatypePlusVariable.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Diatype Variable";
+  src: url("https://type.cargo.site/files/Cargo-DiatypePlusVariable-Italic.woff2") format("woff2-variations");
+  font-style: italic;
+  font-weight: 200 1000;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Diatype Semi-Mono Variable";
+  src: url("https://type.cargo.site/files/Cargo-DiatypePlusVariable.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Diatype Semi-Mono Variable";
+  src: url("https://type.cargo.site/files/Cargo-DiatypePlusVariable-Italic.woff2") format("woff2-variations");
+  font-style: italic;
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+:root {
+  --bg: #b4d7ff;
+  --ink: rgba(0, 0, 0, 0.85);
+  --muted: rgba(0, 0, 0, 0.4);
+  --yellow: #ffff00;
+  --green: #b2ff92;
+  --card-bg: #ffffff;
+  --line: 0.1rem solid var(--ink);
+  --shadow: 0.5rem 0.5rem 0 0 rgba(0, 0, 0, 0.85);
+  --gap: 3rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Diatype Semi-Mono Variable", "IBM Plex Mono", monospace;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  font-variation-settings: "slnt" 0, "MONO" 0.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--muted);
+}
+
+a:active {
+  opacity: 0.7;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+p {
+  margin: 0 0 1.2rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+main.page {
+  padding: 3rem;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dynamic-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-date {
+  color: var(--muted);
+}
+
+.post-image {
+  margin: 0 0 1.2rem;
+  border: var(--line);
+}
+
+.boxed,
+.media-card {
+  border: var(--line);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+}
+
+.boxed {
+  padding: 1.2rem;
+}
+
+.media-card {
+  display: block;
+  padding: 1.2rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+mark {
+  background: var(--yellow);
+  color: inherit;
+  padding: 0 0.1em;
+}
+
+mark.green {
+  background: var(--green);
+}
+
+.gallery-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+@media (max-width: 1100px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  main.page {
+    padding: 1.5rem;
+  }
+
+  .column,
+  .gallery-two {
+    gap: 1.25rem;
+  }
+}
