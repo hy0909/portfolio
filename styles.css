@@ -206,10 +206,22 @@ h3 {
   place-items: center;
   font-weight: 800;
   color: white;
+  overflow: hidden;
 }
 
 .avatar-mina {
   background: linear-gradient(135deg, #ff7b72, #ffb36a);
+}
+
+.avatar-photo {
+  background: white;
+}
+
+.avatar-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .avatar-jun {
