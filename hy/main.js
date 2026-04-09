@@ -1,48 +1,4 @@
-const container = document.querySelector("#notion-boxes");
-
-function escapeHtml(value) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
-function formatBody(text) {
-  return escapeHtml(text).replaceAll("\n", "<br />");
-}
-
-function renderStatus(title, body) {
-  container.innerHTML = `
-    <article class="boxed boxed-status">
-      <p><strong>${escapeHtml(title)}</strong></p>
-      <p>${formatBody(body)}</p>
-    </article>
-  `;
-}
-
-function renderBoxes(items) {
-  if (!items.length) {
-    renderStatus("No Content", "Your Notion database has no published rows yet.");
-    return;
-  }
-
-  container.innerHTML = items
-    .map(
-      (item) => `
-        <article class="boxed">
-          <p><strong>${escapeHtml(item.title)}</strong></p>
-          ${item.date ? `<p class="post-date">${escapeHtml(item.date)}</p>` : ""}
-          ${item.imageUrl ? `<img class="post-image" src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.title)}" />` : ""}
-          <p>${formatBody(item.body)}</p>
-        </article>
-      `,
-    )
-    .join("");
-}
-
-async function loadBoxes() {
+async function loadProjects() {
   try {
     const response = await fetch("./data/notion-boxes.json", { cache: "no-store" });
     const payload = await response.json();
@@ -52,21 +8,87 @@ async function loadBoxes() {
     }
 
     if (payload.configured === false) {
-      renderStatus(
-        "Notion Connection Needed",
-        payload.message || "Set NOTION_TOKEN and NOTION_DATABASE_ID in GitHub Actions secrets.",
-      );
       return;
     }
 
-    renderBoxes(payload.items ?? []);
+    hydrateProjectCards(payload.items ?? []);
   } catch (error) {
-    renderStatus(
-      "Notion Error",
-      error.message || "Please check your Notion token, database ID, and GitHub Actions secrets.",
-    );
     console.error(error);
   }
 }
 
-loadBoxes();
+function hydrateProjectCards(items) {
+  const mapped = {
+    project1: null,
+    project2: null,
+  };
+
+  for (const item of items) {
+    const normalizedSlot = normalizeSlot(item.slot);
+    if (normalizedSlot === "project1" || normalizedSlot === "project2") {
+      mapped[normalizedSlot] = item;
+    }
+  }
+
+  const fallbacks = items.filter((item) => {
+    const normalizedSlot = normalizeSlot(item.slot);
+    return normalizedSlot !== "project1" && normalizedSlot !== "project2";
+  });
+  if (!mapped.project1 && fallbacks[0]) {
+    mapped.project1 = fallbacks[0];
+  }
+  if (!mapped.project2 && fallbacks[1]) {
+    mapped.project2 = fallbacks[1];
+  }
+
+  for (const [slot, item] of Object.entries(mapped)) {
+    if (!item) {
+      continue;
+    }
+
+    const card = document.querySelector(`[data-project-slot="${slot}"]`);
+    if (!card) {
+      continue;
+    }
+
+    const titleNode = card.querySelector('[data-field="title"]');
+    const summationNode = card.querySelector('[data-field="summation"]');
+    const dateNode = card.querySelector('[data-field="date"]');
+    const tagsNode = card.querySelector('[data-field="tags"]');
+
+    if (titleNode && item.title) {
+      titleNode.textContent = item.title;
+    }
+
+    if (summationNode && item.summation) {
+      summationNode.textContent = item.summation;
+    }
+
+    if (dateNode) {
+      dateNode.textContent = item.date || "";
+    }
+
+    if (tagsNode && Array.isArray(item.tags) && item.tags.length > 0) {
+      tagsNode.innerHTML = item.tags
+        .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
+        .join("");
+    }
+  }
+}
+
+function normalizeSlot(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replaceAll(/\s+/g, "");
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+loadProjects();

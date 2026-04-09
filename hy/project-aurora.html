@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-W48LHX2W");
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWRCG9QZT7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-LWRCG9QZT7");
+    </script>
+    <!-- End Google Analytics -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 01 Detail</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="project-detail detail-template" data-project-slot="project1">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W48LHX2W"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="detail-shell">
+      <header class="detail-hero detail-hero-dynamic">
+        <a class="back-link" href="./index.html">← 메인으로</a>
+        <div class="detail-hero-copy">
+          <p class="eyebrow" data-detail-field="project">Project 01</p>
+          <h1 data-detail-field="title">Project Title</h1>
+          <p class="lede" data-detail-field="intro">
+            프로젝트 소개 문장이 이 자리에 들어옵니다.
+          </p>
+        </div>
+        <div class="hero-panel detail-meta-panel">
+          <div class="detail-meta-group">
+            <p class="detail-meta-label">프로젝트 기간</p>
+            <p class="detail-meta-value" data-detail-field="date">03/29/2026</p>
+          </div>
+          <div class="tag-row detail-tag-row" data-detail-field="tags"></div>
+        </div>
+      </header>
+
+      <main class="detail-content detail-sequence">
+        <section class="detail-block detail-block-hero" data-detail-section="1">
+          <div class="story-image detail-image-panel" data-detail-image></div>
+          <div class="story-copy detail-copy-card">
+            <p class="eyebrow">Section 01</p>
+            <p class="detail-body detail-body-large" data-detail-body></p>
+          </div>
+        </section>
+
+        <section class="detail-block detail-block-split" data-detail-section="2">
+          <div class="story-copy detail-copy-card">
+            <p class="eyebrow">Section 02</p>
+            <p class="detail-body" data-detail-body></p>
+          </div>
+          <div class="story-image detail-image-panel" data-detail-image></div>
+        </section>
+
+        <section class="detail-block detail-block-feature" data-detail-section="3">
+          <div class="story-image detail-image-panel" data-detail-image></div>
+          <div class="story-copy detail-copy-card detail-copy-card-narrow">
+            <p class="eyebrow">Section 03</p>
+            <p class="detail-body" data-detail-body></p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./detail.js"></script>
+  </body>
+</html>

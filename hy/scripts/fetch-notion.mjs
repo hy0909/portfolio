@@ -64,16 +64,37 @@ try {
 function mapNotionPage(page) {
   const properties = page.properties || {};
   const titleProperty = findPropertyByName(properties, "title");
+  const summationProperty = findPropertyByName(properties, "summation");
   const bodyProperty = findPropertyByName(properties, "body");
   const dateProperty = findPropertyByName(properties, "date");
   const imageProperty = findPropertyByName(properties, "img");
+  const image1Property = findPropertyByName(properties, "img1");
+  const image2Property = findPropertyByName(properties, "img2");
+  const image3Property = findPropertyByName(properties, "img3");
+  const body1Property = findPropertyByName(properties, "body1");
+  const body2Property = findPropertyByName(properties, "body2");
+  const body3Property = findPropertyByName(properties, "body3");
+  const tagsProperty = findPropertyByName(properties, "tags");
+  const slotProperty = findPropertyByName(properties, "project");
+  const altSlotProperty = findPropertyByName(properties, "slot");
+  const projectLabel = readPlainText(slotProperty) || readPlainText(altSlotProperty);
 
   return {
     id: page.id,
     title: readPlainText(titleProperty) || "Untitled",
+    summation: readPlainText(summationProperty),
     body: readRichText(bodyProperty),
-    date: formatDate(readDate(dateProperty)),
+    date: formatDateRange(readDateRange(dateProperty)),
     imageUrl: readFiles(imageProperty),
+    project: projectLabel,
+    img1: readFiles(image1Property) || readFiles(imageProperty),
+    body1: readRichText(body1Property),
+    img2: readFiles(image2Property),
+    body2: readRichText(body2Property),
+    img3: readFiles(image3Property),
+    body3: readRichText(body3Property),
+    tags: readTags(tagsProperty),
+    slot: projectLabel.toLowerCase(),
   };
 }
 
@@ -123,29 +144,69 @@ function readRichText(property) {
   return property.rich_text.map((item) => item.plain_text).join("");
 }
 
-function readDate(property) {
-  if (!property || property.type !== "date" || !property.date || !property.date.start) {
-    return "";
+function readDateRange(property) {
+  if (!property) {
+    return null;
   }
 
-  return property.date.start;
+  if (property.type === "date" && property.date && property.date.start) {
+    return {
+      start: property.date.start,
+      end: property.date.end || "",
+    };
+  }
+
+  if (property.type === "formula" && property.formula?.type === "date" && property.formula.date?.start) {
+    return {
+      start: property.formula.date.start,
+      end: property.formula.date.end || "",
+    };
+  }
+
+  if (property.type === "rich_text") {
+    const text = readRichText(property).trim();
+    if (text) {
+      return {
+        start: text,
+        end: "",
+        raw: true,
+      };
+    }
+  }
+
+  return null;
 }
 
-function formatDate(value) {
-  if (!value) {
+function formatDateRange(value) {
+  if (!value || !value.start) {
     return "";
   }
 
+  if (value.raw) {
+    return value.start;
+  }
+
+  const start = formatDateValue(value.start);
+  const end = value.end ? formatDateValue(value.end) : "";
+
+  if (!end) {
+    return start;
+  }
+
+  return `${start} ~ ${end}`;
+}
+
+function formatDateValue(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) {
     return value;
   }
 
-  return new Intl.DateTimeFormat("ko-KR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(date);
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const year = String(date.getFullYear());
+
+  return `${month}/${day}/${year}`;
 }
 
 function readFiles(property) {
@@ -163,6 +224,34 @@ function readFiles(property) {
   }
 
   return "";
+}
+
+function readTags(property) {
+  if (!property) {
+    return [];
+  }
+
+  if (property.type === "multi_select") {
+    return property.multi_select.map((item) => item.name).filter(Boolean);
+  }
+
+  if (property.type === "rich_text") {
+    return property.rich_text
+      .map((item) => item.plain_text)
+      .join(",")
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  if (property.type === "formula" && property.formula?.type === "string" && property.formula.string) {
+    return property.formula.string
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  return [];
 }
 
 async function writePayload(payload) {
