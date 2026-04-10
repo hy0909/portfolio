@@ -34,7 +34,7 @@ function hydrateDetailPage(items, pageSlot) {
 
   setText('[data-detail-field="project"]', item.project || pageSlot.toUpperCase());
   setText('[data-detail-field="title"]', item.title || "Untitled");
-  setText('[data-detail-field="date"]', item.date || "");
+  setText('[data-detail-field="date"]', formatProjectDate(item.date));
   setText('[data-detail-field="intro"]', item.summation || item.body1 || "");
 
   renderTags(item.tags || []);
@@ -95,6 +95,35 @@ function setText(selector, value) {
   if (node) {
     node.textContent = value || "";
   }
+}
+
+function formatProjectDate(value) {
+  const raw = String(value || "").trim();
+  if (!raw) {
+    return "";
+  }
+
+  if (/^\d{4}\.\s\d{2}\.\s\d{2}$/.test(raw)) {
+    return raw;
+  }
+
+  if (/^\d{4}$/.test(raw)) {
+    return `${raw}. 01. 01`;
+  }
+
+  const normalized = raw.replaceAll(".", "-").replaceAll("/", "-");
+  const match = normalized.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (match) {
+    const [, year, month, day] = match;
+    return `${year}. ${month.padStart(2, "0")}. ${day.padStart(2, "0")}`;
+  }
+
+  const parsed = new Date(raw);
+  if (!Number.isNaN(parsed.getTime())) {
+    return `${parsed.getFullYear()}. ${String(parsed.getMonth() + 1).padStart(2, "0")}. ${String(parsed.getDate()).padStart(2, "0")}`;
+  }
+
+  return raw;
 }
 
 function normalizeSlot(value) {
