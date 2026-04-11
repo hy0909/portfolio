@@ -26,7 +26,7 @@
     <!-- End Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project 02 Detail</title>
+    <title>프로젝트 2 - 테크 블로그 아티클 아카이빙 서비스</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="project-detail detail-template" data-project-slot="project2">
@@ -34,51 +34,105 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W48LHX2W"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="detail-shell">
-      <header class="detail-hero detail-hero-dynamic">
-        <a class="back-link" href="./index.html">← 메인으로</a>
-        <div class="detail-hero-copy">
-          <p class="eyebrow" data-detail-field="project">Project 02</p>
-          <h1 data-detail-field="title">Project Title</h1>
-          <p class="lede" data-detail-field="intro">
-            프로젝트 소개 문장이 이 자리에 들어옵니다.
-          </p>
-        </div>
-        <div class="hero-panel detail-meta-panel">
-          <div class="detail-meta-group">
-            <p class="detail-meta-label">프로젝트 기간</p>
-            <p class="detail-meta-value" data-detail-field="date">2025-01-01</p>
-          </div>
-          <div class="tag-row detail-tag-row" data-detail-field="tags"></div>
-        </div>
-      </header>
 
-      <main class="detail-content detail-sequence">
-        <section class="detail-block detail-block-hero" data-detail-section="1">
-          <div class="story-image detail-image-panel" data-detail-image></div>
-          <div class="story-copy detail-copy-card">
-            <p class="eyebrow">Section 01</p>
-            <p class="detail-body detail-body-large" data-detail-body></p>
-          </div>
-        </section>
+    <header class="site-header">
+      <a href="./index.html" class="site-logo">KIMHYEYEON</a>
+      <nav class="site-nav">
+        <a href="./index.html" class="nav-link">소개</a>
+        <a href="./project-aurora.html" class="nav-link">프로젝트 1</a>
+        <a href="./project-lattice.html" class="nav-link active">프로젝트 2</a>
+      </nav>
+    </header>
 
-        <section class="detail-block detail-block-split" data-detail-section="2">
-          <div class="story-copy detail-copy-card">
-            <p class="eyebrow">Section 02</p>
-            <p class="detail-body" data-detail-body></p>
-          </div>
-          <div class="story-image detail-image-panel" data-detail-image></div>
-        </section>
-
-        <section class="detail-block detail-block-feature" data-detail-section="3">
-          <div class="story-image detail-image-panel" data-detail-image></div>
-          <div class="story-copy detail-copy-card detail-copy-card-narrow">
-            <p class="eyebrow">Section 03</p>
-            <p class="detail-body" data-detail-body></p>
-          </div>
-        </section>
-      </main>
+    <div class="project-hero">
+      <div class="project-hero-left">
+        <p class="project-hero-label">프로젝트 2</p>
+        <h1 class="project-hero-title">테크 블로그 아티클 아카이빙 서비스</h1>
+      </div>
+      <p class="project-hero-right">
+        국내외 테크 블로그들의 최신 아티클을 개발자가 직접 엄선하여 게재하는 아카이빙 서비스를 기획·디자인했습니다.
+      </p>
     </div>
+
+    <main class="project-content">
+
+      <!-- 메타 정보 -->
+      <div class="meta-box">
+        <div class="meta-item">
+          <p class="meta-label">카테고리</p>
+          <p class="meta-value">콘텐츠 서비스, 아카이빙</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">프로젝트 기간</p>
+          <p class="meta-value">2026</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">역할</p>
+          <p class="meta-value">기획, UX/UI 디자인 (Figma)</p>
+        </div>
+      </div>
+
+      <!-- 배경 -->
+      <div class="section-block img-left" data-detail-section="1">
+        <div class="section-img" data-detail-image></div>
+        <div class="section-copy">
+          <div class="section-text-group">
+            <p class="section-label">배경</p>
+            <h2 class="section-heading">흩어진 테크 아티클을 한 곳에서 발견할 수 없는 문제</h2>
+            <p class="section-body">개발자들은 양질의 테크 아티클을 찾기 위해 여러 블로그를 직접 탐색해야 했습니다. 신뢰할 수 있는 큐레이터가 엄선한 아티클을 한 곳에서 소비할 수 있는 서비스가 필요했습니다.</p>
+          </div>
+          <div class="section-bullets">
+            <span>· 국내외 테크 블로그 아티클이 산재</span>
+            <span>· 양질의 콘텐츠를 발견하기 어려운 구조</span>
+            <span>· 전문가 큐레이션 부재</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 문제 정의 -->
+      <div class="section-block img-right" data-detail-section="2">
+        <div class="section-copy">
+          <div class="section-text-group">
+            <p class="section-label">문제 정의</p>
+            <p class="section-body">단순 링크 모음이 아닌, 개발자가 직접 읽고 엄선한 아티클만을 게재하여 신뢰도 높은 정보 허브를 구축하는 것이 핵심 목표였습니다.</p>
+          </div>
+          <div class="section-bullets">
+            <span>· 큐레이터의 전문성이 드러나는 구조 설계</span>
+            <span>· 아티클 탐색과 아카이빙이 동시에 가능한 경험</span>
+            <span>· 복잡한 정보 위계를 명확하게 시각화</span>
+          </div>
+        </div>
+        <div class="section-img" data-detail-image></div>
+      </div>
+
+      <!-- 서비스 설계 -->
+      <div class="section-block img-left" data-detail-section="3">
+        <div class="section-img" data-detail-image></div>
+        <div class="section-copy">
+          <div class="section-text-group">
+            <p class="section-label">서비스 설계</p>
+            <h2 class="section-heading">리서치와 아카이브를 한 화면에</h2>
+            <p class="section-body">스크롤이 길어질수록 오히려 정보 위계가 또렷해지도록 설계했습니다. 카테고리별 탐색과 태그 기반 필터링으로 원하는 아티클에 빠르게 접근할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UI 디자인 -->
+      <div class="section-block img-right">
+        <div class="section-copy">
+          <div class="section-text-group">
+            <h2 class="section-heading">읽기 경험 중심의 UI</h2>
+            <p class="section-body">아티클 목록과 상세 뷰 모두 가독성을 최우선으로 설계했습니다. 타이포그래피 리듬과 여백을 통해 콘텐츠에 집중할 수 있는 환경을 만들었습니다.</p>
+          </div>
+          <div class="section-bullets">
+            <span>· CMS Integration을 고려한 컴포넌트 구조</span>
+            <span>· Readable Motion으로 부드러운 전환 경험</span>
+          </div>
+        </div>
+        <div class="section-img"></div>
+      </div>
+
+    </main>
 
     <script type="module" src="./detail.js"></script>
   </body>
