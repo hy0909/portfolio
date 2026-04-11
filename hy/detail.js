@@ -103,24 +103,32 @@ function formatProjectDate(value) {
     return "";
   }
 
-  if (/^\d{4}\.\s\d{2}\.\s\d{2}$/.test(raw)) {
-    return raw;
+  const dottedMatch = raw.match(/^(\d{4})\.\s*(\d{1,2})\.\s*(\d{1,2})$/);
+  if (dottedMatch) {
+    const [, year, month, day] = dottedMatch;
+    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
   }
 
   if (/^\d{4}$/.test(raw)) {
-    return `${raw}. 01. 01`;
+    return `${raw}-01-01`;
   }
 
   const normalized = raw.replaceAll(".", "-").replaceAll("/", "-");
-  const match = normalized.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
-  if (match) {
-    const [, year, month, day] = match;
-    return `${year}. ${month.padStart(2, "0")}. ${day.padStart(2, "0")}`;
+  const ymdMatch = normalized.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (ymdMatch) {
+    const [, year, month, day] = ymdMatch;
+    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  }
+
+  const mdyMatch = normalized.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/);
+  if (mdyMatch) {
+    const [, month, day, year] = mdyMatch;
+    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
   }
 
   const parsed = new Date(raw);
   if (!Number.isNaN(parsed.getTime())) {
-    return `${parsed.getFullYear()}. ${String(parsed.getMonth() + 1).padStart(2, "0")}. ${String(parsed.getDate()).padStart(2, "0")}`;
+    return `${parsed.getFullYear()}-${String(parsed.getMonth() + 1).padStart(2, "0")}-${String(parsed.getDate()).padStart(2, "0")}`;
   }
 
   return raw;
