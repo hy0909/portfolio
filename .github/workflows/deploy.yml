@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - members/김혜연-portfolio2026
   workflow_dispatch:
   schedule:
     - cron: "*/15 * * * *"
