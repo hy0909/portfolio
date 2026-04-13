@@ -27,7 +27,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  background: var(--bg);
+  background: var(--bg-gray);
   color: var(--ink);
 }
 
@@ -205,6 +205,7 @@ h3 {
 }
 
 .project-content {
+  background: #ffffff;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
@@ -228,7 +229,11 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  flex: 1;
+  flex-shrink: 0;
+}
+
+.meta-item:last-child {
+  flex: 1 0 0;
   min-width: 0;
 }
 
@@ -286,7 +291,6 @@ h3 {
   letter-spacing: -0.3px;
   line-height: 1;
   color: var(--accent);
-  margin-bottom: 12px;
 }
 
 .section-heading {
