@@ -60,7 +60,7 @@ h3 {
 .site-logo {
   font-size: 22px;
   font-weight: 900;
-  letter-spacing: -0.44px;
+  letter-spacing: -0.22px;
   line-height: 1.36;
   white-space: nowrap;
   padding: 12px 0;
@@ -78,7 +78,7 @@ h3 {
   padding: 12px 32px;
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.2px;
   color: var(--ink-light);
   white-space: nowrap;
 }
@@ -109,7 +109,7 @@ h3 {
   flex: 1;
   font-size: 26px;
   font-weight: 700;
-  letter-spacing: -0.52px;
+  letter-spacing: -0.26px;
   line-height: 1.36;
 }
 
@@ -117,7 +117,7 @@ h3 {
   flex: 1;
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: -0.32px;
+  letter-spacing: -0.16px;
   line-height: 1.54;
   display: flex;
   flex-direction: column;
@@ -136,7 +136,7 @@ h3 {
   flex: 1;
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.36px;
+  letter-spacing: -0.18px;
   line-height: 1.36;
 }
 
@@ -147,7 +147,7 @@ h3 {
 .intro-project-title {
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: -0.32px;
+  letter-spacing: -0.16px;
   line-height: 1.54;
   margin: 0;
 }
@@ -159,7 +159,7 @@ h3 {
   margin-top: 8px;
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: -0.32px;
+  letter-spacing: -0.16px;
   line-height: 1.54;
   color: var(--ink-muted);
 }
@@ -185,14 +185,14 @@ h3 {
 .project-hero-label {
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.15px;
   line-height: 1.36;
 }
 
 .project-hero-title {
   font-size: 28px;
   font-weight: 700;
-  letter-spacing: -0.56px;
+  letter-spacing: -0.28px;
   line-height: 1.36;
 }
 
@@ -200,7 +200,7 @@ h3 {
   flex: 1;
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: -0.32px;
+  letter-spacing: -0.16px;
   line-height: 1.54;
 }
 
@@ -240,7 +240,7 @@ h3 {
 .meta-label {
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.15px;
   line-height: 1.4;
   color: var(--ink-light);
   white-space: nowrap;
@@ -249,7 +249,7 @@ h3 {
 .meta-value {
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.15px;
   line-height: 1.52;
   color: var(--ink-mid);
 }
@@ -288,7 +288,7 @@ h3 {
 .section-label {
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.15px;
   line-height: 1;
   color: var(--accent);
 }
@@ -296,7 +296,7 @@ h3 {
 .section-heading {
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.36px;
+  letter-spacing: -0.18px;
   line-height: 1.54;
   color: var(--ink-mid);
   margin-bottom: 0;
@@ -305,7 +305,7 @@ h3 {
 .section-body {
   font-size: 18px;
   font-weight: 400;
-  letter-spacing: -0.36px;
+  letter-spacing: -0.18px;
   line-height: 1.54;
   color: var(--ink-mid);
 }
@@ -321,7 +321,7 @@ h3 {
   padding-top: 12px;
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.15px;
   line-height: 1.54;
   color: var(--ink-muted);
   display: flex;
