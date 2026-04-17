@@ -1,132 +1,177 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <!-- Google Tag Manager -->
-    <script>
-      (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-W48LHX2W");
-    </script>
-    <!-- End Google Tag Manager -->
-    <!-- Google Analytics -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W48LHX2W');</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWRCG9QZT7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag("js", new Date());
-      gtag("config", "G-LWRCG9QZT7");
-    </script>
-    <!-- End Google Analytics -->
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LWRCG9QZT7');</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>프로젝트 2 - 테크 블로그 아티클 아카이빙 서비스</title>
+    <title>프로젝트 2 — KIMHYEYEON</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="project-detail detail-template" data-project-slot="project2">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W48LHX2W"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W48LHX2W" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header class="site-header">
-      <a href="./index.html" class="site-logo">KIMHYEYEON</a>
+      <a href="./index.html" class="site-logo-wrap">
+        <span class="site-logo">KIMHYEYEON</span>
+      </a>
       <nav class="site-nav">
-        <a href="./index.html" class="nav-link">소개</a>
+        <a href="./intro.html" class="nav-link">소개</a>
         <a href="./project-aurora.html" class="nav-link">프로젝트 1</a>
         <a href="./project-lattice.html" class="nav-link active">프로젝트 2</a>
+        <a href="mailto:kimhy0909@gmail.com" class="nav-link">문의</a>
       </nav>
     </header>
 
     <div class="project-hero">
       <div class="project-hero-left">
         <p class="project-hero-label">프로젝트 2</p>
-        <h1 class="project-hero-title">테크 블로그 아티클 아카이빙 서비스</h1>
+        <h1 class="project-hero-title large">저가 카페 매장 결제 고객 분석 대시보드 PoC</h1>
       </div>
-      <p class="project-hero-right">
-        국내외 테크 블로그들의 최신 아티클을 개발자가 직접 엄선하여 게재하는 아카이빙 서비스를 기획·디자인했습니다.
-      </p>
+      <p class="project-hero-right">점주/관리자에게 매장 운영 인사이트를 제공하는 결제 고객 통계 대시보드를 기획 및 디자인했습니다.</p>
     </div>
 
     <main class="project-content">
 
-      <!-- 메타 정보 -->
-      <div class="meta-box">
+      <!-- 메타 -->
+      <div class="meta-bar">
         <div class="meta-item">
-          <p class="meta-label">카테고리</p>
-          <p class="meta-value">콘텐츠 서비스, 아카이빙</p>
+          <p class="meta-label">키워드</p>
+          <p class="meta-value">매장 운영, Vision AI, 대시보드</p>
         </div>
         <div class="meta-item">
           <p class="meta-label">프로젝트 기간</p>
-          <p class="meta-value">2026</p>
+          <p class="meta-value">2025. 7. 10 ~ 7. 31</p>
         </div>
         <div class="meta-item">
-          <p class="meta-label">역할</p>
-          <p class="meta-value">기획, UX/UI 디자인 (Figma)</p>
+          <p class="meta-label">팀</p>
+          <p class="meta-value">PM 1, <strong>프로덕트 디자이너 1</strong>, AI 엔지니어 1, 프론트엔드 개발자 1, 백엔드 개발자 1</p>
         </div>
       </div>
 
-      <!-- 배경 -->
-      <div class="section-block img-left" data-detail-section="1">
-        <div class="section-img" data-detail-image></div>
+      <!-- 문제 상황 -->
+      <div class="section-block img-left">
+        <div class="section-img"></div>
         <div class="section-copy">
           <div class="section-text-group">
-            <p class="section-label">배경</p>
-            <h2 class="section-heading">흩어진 테크 아티클을 한 곳에서 발견할 수 없는 문제</h2>
-            <p class="section-body">개발자들은 양질의 테크 아티클을 찾기 위해 여러 블로그를 직접 탐색해야 했습니다. 신뢰할 수 있는 큐레이터가 엄선한 아티클을 한 곳에서 소비할 수 있는 서비스가 필요했습니다.</p>
+            <div class="section-label-heading">
+              <p class="section-label">문제 상황</p>
+              <h2 class="section-heading">매출 손실 + 운영 비효율 + 의사결정 지연 발생</h2>
+            </div>
+            <p class="section-body">마트 내 상품 결품 시점을 명확히 알 수 없었고 현장 직원은 직관에 의존해야만 했습니다. 직원이 직접 여러 매대를 돌아다니며 결품 현황을 확인한 뒤 상품을 충진하는 상황이었습니다.</p>
           </div>
           <div class="section-bullets">
-            <span>· 국내외 테크 블로그 아티클이 산재</span>
-            <span>· 양질의 콘텐츠를 발견하기 어려운 구조</span>
-            <span>· 전문가 큐레이션 부재</span>
+            <span>· 결품 발생 시점을 알 수 없어 대응 지연</span>
+            <span>· 매대 상태 확인을 위해 불필요한 동선 낭비</span>
+            <span>· 결품 → 충진 → 판매까지의 단계가 데이터로 남지 않음</span>
           </div>
         </div>
       </div>
 
       <!-- 문제 정의 -->
-      <div class="section-block img-right" data-detail-section="2">
-        <div class="section-copy">
-          <div class="section-text-group">
-            <p class="section-label">문제 정의</p>
-            <p class="section-body">단순 링크 모음이 아닌, 개발자가 직접 읽고 엄선한 아티클만을 게재하여 신뢰도 높은 정보 허브를 구축하는 것이 핵심 목표였습니다.</p>
-          </div>
-          <div class="section-bullets">
-            <span>· 큐레이터의 전문성이 드러나는 구조 설계</span>
-            <span>· 아티클 탐색과 아카이빙이 동시에 가능한 경험</span>
-            <span>· 복잡한 정보 위계를 명확하게 시각화</span>
-          </div>
-        </div>
-        <div class="section-img" data-detail-image></div>
-      </div>
-
-      <!-- 서비스 설계 -->
-      <div class="section-block img-left" data-detail-section="3">
-        <div class="section-img" data-detail-image></div>
-        <div class="section-copy">
-          <div class="section-text-group">
-            <p class="section-label">서비스 설계</p>
-            <h2 class="section-heading">리서치와 아카이브를 한 화면에</h2>
-            <p class="section-body">스크롤이 길어질수록 오히려 정보 위계가 또렷해지도록 설계했습니다. 카테고리별 탐색과 태그 기반 필터링으로 원하는 아티클에 빠르게 접근할 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- UI 디자인 -->
       <div class="section-block img-right">
         <div class="section-copy">
           <div class="section-text-group">
-            <h2 class="section-heading">읽기 경험 중심의 UI</h2>
-            <p class="section-body">아티클 목록과 상세 뷰 모두 가독성을 최우선으로 설계했습니다. 타이포그래피 리듬과 여백을 통해 콘텐츠에 집중할 수 있는 환경을 만들었습니다.</p>
+            <div class="section-label-heading">
+              <p class="section-label">문제 정의</p>
+              <h2 class="section-heading">결품 알림을 확인한 뒤, 그 후엔?</h2>
+            </div>
+            <p class="section-body">이 프로젝트의 핵심 문제는 단순히 "알림으로 결품 상황을 알려주는 것"이 아니라, 결품 발생 이후의 단계가 측정되지 않는 구조에 있었습니다.</p>
           </div>
           <div class="section-bullets">
-            <span>· CMS Integration을 고려한 컴포넌트 구조</span>
-            <span>· Readable Motion으로 부드러운 전환 경험</span>
+            <span>· 결품 이후 현황이 추적되지 않음</span>
+            <span>· 직원 간 결품 상태(재고없음/처리완료)가 공유되지 않음</span>
+            <span>· 언제, 어디서, 얼마나 오래 결품이 발생했는지 알 수 없음</span>
+            <span>· 병목이 어디서 발생하는지 파악 불가</span>
+          </div>
+        </div>
+        <div class="section-img"></div>
+      </div>
+
+      <!-- 문제 해결 1 -->
+      <div class="section-block img-left">
+        <div class="section-img"></div>
+        <div class="section-copy">
+          <div class="section-text-group">
+            <div class="section-label-heading">
+              <p class="section-label">문제 해결 1</p>
+              <h2 class="section-heading">결품 → 행동 → 결과, 단계별 현황 기록</h2>
+            </div>
+            <p class="section-body">각 단계 발생 시간을 측정 가능하도록 구조를 설계하여, 운영 프로세스를 데이터로 변환하고자 했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 문제 해결 2 -->
+      <div class="section-block img-right">
+        <div class="section-copy">
+          <div class="section-text-group">
+            <div class="section-label-heading">
+              <p class="section-label">문제 해결 2</p>
+              <h2 class="section-heading">현장 직원용: 행동을 유도하는 모바일 알림 설계</h2>
+            </div>
+            <p class="section-body">현장 직원이 사용할 모바일 알림 뷰는 '언제, 어디, 어떤 매대'인지 한눈에 파악 가능하게 구성했습니다. 불필요한 정보를 제거하여 '알림 → 확인 → 처리완료'까지 이어지는 플로우를 최소화하여 설계했습니다.<br><br>또한 '재고없음/처리완료/오류제보' 버튼을 추가하여 알림 후 담당 직원이 어떤 대응을 했는지 현장 직원들끼리 현황을 공유할 수 있도록 했습니다.</p>
+          </div>
+          <div class="section-bullets">
+            <span>· 단순 결품 확인이 아닌 충진 여부 등 행동 기록을 남길 수 있도록 설계</span>
+            <span>· 현장 행동의 정량화</span>
+          </div>
+        </div>
+        <div class="section-img"></div>
+      </div>
+
+      <!-- 문제 해결 3 -->
+      <div class="section-block img-left">
+        <div class="section-img"></div>
+        <div class="section-copy">
+          <div class="section-text-group">
+            <div class="section-label-heading">
+              <p class="section-label">문제 해결 3</p>
+              <h2 class="section-heading">관리자용: 인사이트 중심 PC 대시보드 설계</h2>
+            </div>
+            <p class="section-body">결품 데이터 모니터링 뿐만 아니라, 시간대 / 구역별 결품 발생 패턴을 파악할 수 있도록 차트 형태로 시각화하였습니다. 또한, 결품 → 충진까지 소요 시간을 기입하여 병목이 있는 구간을 빠르게 확인할 수 있도록 했습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 결과 1 -->
+      <div class="section-block img-right">
+        <div class="section-copy">
+          <div class="section-text-group">
+            <div class="section-label-heading">
+              <p class="section-label">결과 1</p>
+              <h2 class="section-heading">결품 관리의 정량화 달성</h2>
+            </div>
+            <p class="section-body">기존엔 현장 직원/마트 관리자의 감에 의존하거나, 결제 데이터만으로 의사결정할 수 있었지만, 현재는 결품 데이터 기반 운영으로 전환되어 결품 대응 시간 및 프로세스 개선 가능해졌습니다.</p>
+          </div>
+        </div>
+        <div class="section-img"></div>
+      </div>
+
+      <!-- 결과 2 -->
+      <div class="section-block img-left">
+        <div class="section-img"></div>
+        <div class="section-copy">
+          <div class="section-text-group">
+            <div class="section-label-heading">
+              <p class="section-label">결과 2</p>
+              <h2 class="section-heading">서비스 확장 검토</h2>
+            </div>
+            <p class="section-body">1개 지점 PoC로 시작하여 CCTV 31대로 시작했지만, 비즈니스 가치가 검증되어 3개 지점 추가 도입을 검토 중입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 결과 3 -->
+      <div class="section-block img-right">
+        <div class="section-copy">
+          <div class="section-text-group">
+            <div class="section-label-heading">
+              <p class="section-label">결과 3</p>
+              <h2 class="section-heading">비즈니스 가치 검증</h2>
+            </div>
+            <p class="section-body">대기업 및 중견기업 3곳 도입 문의 발생<br>전시 및 홍보를 통한 리드 확보</p>
           </div>
         </div>
         <div class="section-img"></div>
@@ -134,6 +179,6 @@
 
     </main>
 
-    <script type="module" src="./detail.js"></script>
+    <script src="./landing.js"></script>
   </body>
 </html>
