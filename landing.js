@@ -12,51 +12,15 @@ function navigateTo(href) {
   setTimeout(() => { window.location.href = href; }, 300);
 }
 
-/* 2. List items — hover hold-to-navigate ─────────────────── */
+/* 2. List items — click-to-navigate ──────────────────────── */
 function initListItems() {
   const items = document.querySelectorAll('.list-item');
   if (!items.length) return;
 
-  const HOLD_MS = 600; // ms to hold before navigating
-
   items.forEach(item => {
-    const progress = item.querySelector('.list-item-progress');
     const href = item.getAttribute('data-href') || item.getAttribute('href');
-    let timer = null;
-    let startTime = null;
-    let rafId = null;
 
-    function startHold() {
-      startTime = performance.now();
-      item.style.cursor = 'pointer';
-
-      function animate(now) {
-        const elapsed = now - startTime;
-        const ratio = Math.min(elapsed / HOLD_MS, 1);
-        if (progress) progress.style.width = (ratio * 100) + '%';
-        if (ratio < 1) {
-          rafId = requestAnimationFrame(animate);
-        } else {
-          navigateTo(href);
-        }
-      }
-      rafId = requestAnimationFrame(animate);
-    }
-
-    function cancelHold() {
-      if (rafId) cancelAnimationFrame(rafId);
-      if (progress) {
-        progress.style.transition = 'width 0.2s ease';
-        progress.style.width = '0';
-        setTimeout(() => { progress.style.transition = ''; }, 200);
-      }
-      startTime = null;
-    }
-
-    item.addEventListener('mouseenter', startHold);
-    item.addEventListener('mouseleave', cancelHold);
-
-    // Also allow normal click
+    item.style.cursor = 'pointer';
     item.addEventListener('click', e => {
       e.preventDefault();
       navigateTo(href);

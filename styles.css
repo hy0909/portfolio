@@ -129,7 +129,6 @@ body.fade-out {
 .list-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 20px 16px;
   border-bottom: 1px solid var(--ink);
   border-radius: 0;
@@ -147,6 +146,7 @@ body.fade-out {
   background: #ffffff;
   border-radius: 12px;
   border-color: transparent;
+  box-shadow: none;
 }
 
 .list-item-label {
@@ -155,11 +155,16 @@ body.fade-out {
   letter-spacing: -0.28px;
   line-height: 1.36;
   color: var(--ink);
+  flex-shrink: 0;
+  white-space: nowrap;
   position: relative;
   z-index: 1;
 }
 
 .list-item-arrow {
+  flex: 1 0 0;
+  min-width: 1px;
+  text-align: right;
   font-size: 28px;
   font-weight: 500;
   color: var(--ink);
@@ -177,6 +182,7 @@ body.fade-out {
 
 /* Progress bar inside list item */
 .list-item-progress {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
