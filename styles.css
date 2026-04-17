@@ -147,6 +147,30 @@ body.fade-out {
   border-radius: 12px;
   border-color: transparent;
   box-shadow: none;
+  z-index: 1;
+}
+
+.list-item:has(+ .list-item:hover) {
+  border-bottom-color: transparent;
+}
+
+.list-item:hover::before,
+.list-item:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.list-item:hover::before {
+  top: 0;
+}
+
+.list-item:hover::after {
+  bottom: 0;
 }
 
 .list-item-label {
