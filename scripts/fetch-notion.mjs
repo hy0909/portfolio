@@ -71,6 +71,11 @@ function mapNotionPage(page) {
   const image1Property = findPropertyByName(properties, "img1");
   const image2Property = findPropertyByName(properties, "img2");
   const image3Property = findPropertyByName(properties, "img3");
+  const image4Property = findPropertyByName(properties, "img4");
+  const image5Property = findPropertyByName(properties, "img5");
+  const image6Property = findPropertyByName(properties, "img6");
+  const image7Property = findPropertyByName(properties, "img7");
+  const image8Property = findPropertyByName(properties, "img8");
   const body1Property = findPropertyByName(properties, "body1");
   const body2Property = findPropertyByName(properties, "body2");
   const body3Property = findPropertyByName(properties, "body3");
@@ -93,6 +98,11 @@ function mapNotionPage(page) {
     body2: readRichText(body2Property),
     img3: readFiles(image3Property),
     body3: readRichText(body3Property),
+    img4: readFiles(image4Property),
+    img5: readFiles(image5Property),
+    img6: readFiles(image6Property),
+    img7: readFiles(image7Property),
+    img8: readFiles(image8Property),
     tags: readTags(tagsProperty),
     slot: projectLabel.toLowerCase(),
   };

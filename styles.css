@@ -434,8 +434,12 @@ body.fade-out {
 .section-img {
   background: var(--img-bg);
   border-radius: 20px;
-  min-height: 489px;
+  aspect-ratio: 16 / 9;
+  width: 100%;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .section-img:hover {
@@ -509,7 +513,6 @@ body.fade-out {
   }
 
   .section-img {
-    min-height: 320px;
     width: 100%;
   }
 
