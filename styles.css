@@ -295,11 +295,32 @@ body.fade-out {
 
 .intro-project-title {
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -0.17px;
   line-height: 1.54;
   color: var(--ink);
   margin: 0;
+}
+
+.intro-project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.intro-project-meta-row {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.intro-project-meta-label {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.15px;
+  line-height: 1.54;
+  color: rgba(18, 24, 38, 0.6);
 }
 
 .intro-project-detail {
@@ -311,6 +332,10 @@ body.fade-out {
   letter-spacing: -0.15px;
   line-height: 1.54;
   color: var(--ink);
+}
+
+.intro-project-detail span {
+  display: block;
 }
 
 /* ── Project hero ────────────────────────────────────────── */
