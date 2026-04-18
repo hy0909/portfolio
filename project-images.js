@@ -5,6 +5,12 @@ async function loadProjectImages() {
   }
 
   try {
+    const apiPayload = await fetchLiveProjectImages(pageSlot);
+    if (apiPayload?.item) {
+      hydrateProjectImages(apiPayload.item);
+      return;
+    }
+
     const response = await fetch("./data/notion-boxes.json", { cache: "no-store" });
     const payload = await response.json();
 
@@ -16,21 +22,31 @@ async function loadProjectImages() {
       return;
     }
 
-    hydrateProjectImages(payload.items ?? [], pageSlot);
+    const item = findProjectItem(payload.items ?? [], pageSlot);
+    if (item) {
+      hydrateProjectImages(item);
+    }
   } catch (error) {
     console.error(error);
   }
 }
 
-function hydrateProjectImages(items, pageSlot) {
-  const exactMatch = items.find((item) => normalizeSlot(item.slot) === pageSlot);
-  const fallbackIndex = pageSlot === "project1" ? 0 : 1;
-  const item = exactMatch || items[fallbackIndex] || null;
-
-  if (!item) {
-    return;
+async function fetchLiveProjectImages(pageSlot) {
+  const response = await fetch(`/api/notion-project-images?slot=${encodeURIComponent(pageSlot)}`, { cache: "no-store" });
+  if (!response.ok) {
+    return null;
   }
 
+  return response.json();
+}
+
+function findProjectItem(items, pageSlot) {
+  const exactMatch = items.find((item) => normalizeSlot(item.slot) === pageSlot);
+  const fallbackIndex = pageSlot === "project1" ? 0 : 1;
+  return exactMatch || items[fallbackIndex] || null;
+}
+
+function hydrateProjectImages(item) {
   for (let index = 1; index <= 8; index += 1) {
     const imageUrl = item[`img${index}`] || "";
     const imageNode = document.querySelector(`[data-notion-image-index="${index}"]`);
