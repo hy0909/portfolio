@@ -358,7 +358,7 @@ body.fade-out {
   flex: 1;
   min-width: 0;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.18px;
   line-height: 1.54;
   color: var(--ink-hero-sub);
