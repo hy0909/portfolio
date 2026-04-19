@@ -438,6 +438,10 @@ body.fade-out {
   color: var(--ink-meta);
 }
 
+.meta-item:last-child .meta-value strong {
+  font-weight: 400;
+}
+
 /* Section blocks */
 .section-block {
   display: grid;
