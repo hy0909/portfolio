@@ -155,7 +155,11 @@ body.fade-out {
 }
 
 .list-item:hover {
-  transform: translateX(2px);
+  background: #ffffff;
+  border-radius: 12px;
+  border-color: transparent;
+  transform: none;
+  z-index: 1;
 }
 
 .list-item.is-featured {
@@ -171,9 +175,27 @@ body.fade-out {
   transform: none;
 }
 
+.list-item:has(+ .list-item:hover) {
+  border-bottom-color: transparent;
+}
+
 .list-item:hover::before,
 .list-item:hover::after {
-  content: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.list-item:hover::before {
+  top: 0;
+}
+
+.list-item:hover::after {
+  bottom: 0;
 }
 
 .list-item-label {
