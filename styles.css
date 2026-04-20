@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap");
 
 /* ── Tokens ──────────────────────────────────────────────── */
 :root {
@@ -14,6 +15,7 @@
   --hero-bg: #25251e;
   --img-bg: #ffffff;
   --font: "Pretendard", "Pretendard Variable", sans-serif;
+  --font-display: "Clash Display", "Pretendard", sans-serif;
 }
 
 /* ── Reset ───────────────────────────────────────────────── */
@@ -96,87 +98,88 @@ body.fade-out {
 .nav-link.active { font-weight: 800; color: var(--ink); }
 
 /* ── List (landing) page ─────────────────────────────────── */
-.list-page { min-height: 100vh; }
+.list-page {
+  min-height: 100vh;
+  background: #e6e8ed;
+}
 
 .list-container {
   display: flex;
-  gap: 80px;
+  justify-content: space-between;
   align-items: flex-start;
-  padding: 52px 28px;
+  min-height: 100vh;
+  gap: 48px;
+  padding: 54px 24px 40px;
 }
 
 .list-logo-col {
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
+  padding-top: 18px;
 }
 
 .list-logo {
-  font-size: 36px;
-  font-weight: 900;
-  letter-spacing: -0.72px;
-  line-height: 1.36;
+  font-family: var(--font-display);
+  font-size: clamp(64px, 6.3vw, 108px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
   color: var(--ink);
   margin: 0;
 }
 
 .list-nav-col {
-  flex: 1;
-  min-width: 0;
+  flex: 0 0 min(45vw, 618px);
+  min-width: 320px;
   display: flex;
   flex-direction: column;
+  padding-top: 22px;
 }
 
 .list-item {
   display: flex;
   align-items: center;
-  padding: 20px 16px;
-  border-bottom: 1px solid var(--ink);
+  min-height: 74px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(37, 37, 30, 0.72);
   border-radius: 0;
   background: transparent;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition:
-    background 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background 0.2s ease,
+    border-radius 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .list-item:hover {
-  background: #ffffff;
-  border-radius: 12px;
-  border-color: transparent;
-  box-shadow: none;
-  z-index: 1;
+  transform: translateX(2px);
 }
 
-.list-item:has(+ .list-item:hover) {
+.list-item.is-featured {
+  background: #ffffff;
   border-bottom-color: transparent;
+  border-radius: 26px;
+  margin-bottom: 14px;
+  padding-inline: 24px 22px;
+}
+
+.list-item.is-featured:hover {
+  background: #ffffff;
+  transform: none;
 }
 
 .list-item:hover::before,
 .list-item:hover::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #ffffff;
-  pointer-events: none;
-}
-
-.list-item:hover::before {
-  top: 0;
-}
-
-.list-item:hover::after {
-  bottom: 0;
+  content: none;
 }
 
 .list-item-label {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
-  letter-spacing: -0.28px;
+  letter-spacing: -0.04em;
   line-height: 1.36;
   color: var(--ink);
   flex-shrink: 0;
@@ -189,8 +192,8 @@ body.fade-out {
   flex: 1 0 0;
   min-width: 1px;
   text-align: right;
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 34px;
+  font-weight: 400;
   color: var(--ink);
   opacity: 0;
   transform: translateX(-8px);
@@ -199,6 +202,7 @@ body.fade-out {
   z-index: 1;
 }
 
+.list-item.is-featured .list-item-arrow,
 .list-item:hover .list-item-arrow {
   opacity: 1;
   transform: translateX(0);
@@ -215,6 +219,44 @@ body.fade-out {
   background: var(--ink);
   border-radius: 2px;
   z-index: 2;
+}
+
+@media (max-width: 960px) {
+  .list-container {
+    flex-direction: column;
+    gap: 40px;
+    padding: 32px 20px 28px;
+  }
+
+  .list-logo-col,
+  .list-nav-col {
+    width: 100%;
+    min-width: 0;
+    flex-basis: auto;
+    padding-top: 0;
+  }
+
+  .list-logo {
+    font-size: clamp(44px, 12vw, 72px);
+  }
+
+  .list-item {
+    min-height: 68px;
+    padding: 16px 18px;
+  }
+
+  .list-item.is-featured {
+    border-radius: 22px;
+    margin-bottom: 10px;
+  }
+
+  .list-item-label {
+    font-size: 22px;
+  }
+
+  .list-item-arrow {
+    font-size: 28px;
+  }
 }
 
 /* ── Intro page ──────────────────────────────────────────── */

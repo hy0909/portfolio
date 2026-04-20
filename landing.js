@@ -93,21 +93,6 @@ function initIntroRows() {
   });
 }
 
-/* 7. List logo — subtle float animation ─────────────────── */
-function initLogoFloat() {
-  const logo = document.querySelector('.list-logo');
-  if (!logo) return;
-  logo.style.animation = 'logoFloat 4s ease-in-out infinite';
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes logoFloat {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-4px); }
-    }
-  `;
-  document.head.appendChild(style);
-}
-
 /* ── Init ────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initListItems();
@@ -115,5 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initHeaderScroll();
   initIntroRows();
-  initLogoFloat();
 });
