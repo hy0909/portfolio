@@ -172,6 +172,7 @@ body.fade-out {
 
 .list-item.is-featured:hover {
   background: #ffffff;
+  border-radius: 12px;
   transform: none;
 }
 
