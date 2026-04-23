@@ -37,6 +37,12 @@ body[data-project-slot] {
   --img-bg: #e8dfd2;
 }
 
+body.intro-page {
+  --bg: #eef1f6;
+  --ink-section: #7e8796;
+  --ink-meta: #4f5868;
+}
+
 /* ── Page transition ─────────────────────────────────────── */
 body {
   opacity: 0;
@@ -62,26 +68,42 @@ body.fade-out {
   display: flex;
   align-items: stretch;
   min-height: 56px;
-  padding-left: 28px;
+  padding-left: 0;
 }
 
 .site-logo-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
   flex-shrink: 0;
 }
 
-.site-menu-icon {
-  font-size: 18px;
-  line-height: 1;
-  color: var(--ink);
+.site-menu-button {
+  width: 52px;
+  min-height: 56px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-right: 1px solid var(--ink);
+  flex-shrink: 0;
+}
+
+.site-menu-line {
+  width: 15px;
+  height: 1.5px;
+  background: var(--ink);
+  border-radius: 999px;
 }
 
 .site-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 18px 0 16px;
   font-size: 24px;
-  font-weight: 900;
-  letter-spacing: -0.48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   line-height: 1.36;
   white-space: nowrap;
   color: var(--ink);
@@ -100,13 +122,13 @@ body.fade-out {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.2px;
-  color: var(--ink-nav);
+  color: var(--ink);
   white-space: nowrap;
   border-left: 1px solid var(--ink);
   transition: color 0.2s ease, background 0.2s ease;
 }
 
-.nav-link:hover { color: var(--ink); }
+.nav-link:hover { color: var(--ink); background: rgba(255, 255, 255, 0.6); }
 .nav-link.active { font-weight: 800; color: var(--ink); background: #ffffff; }
 
 /* ── List (landing) page ─────────────────────────────────── */
