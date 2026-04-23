@@ -43,6 +43,11 @@ body.intro-page {
   --ink-meta: #4f5868;
 }
 
+body.projects-overview-page {
+  --bg: #eef1f6;
+  --ink-section: #6d7585;
+}
+
 /* ── Page transition ─────────────────────────────────────── */
 body {
   opacity: 0;
@@ -439,58 +444,58 @@ body.fade-out {
 
 /* ── Projects page ──────────────────────────────────────── */
 .projects-page {
-  padding: 28px;
+  padding: 48px 26px 36px;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 24px;
   align-items: start;
 }
 
 .project-list-card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 4px;
-  border-radius: 20px;
+  gap: 14px;
+  padding: 0;
+  border-radius: 24px;
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .project-list-card:hover {
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: 0 8px 20px rgba(37, 37, 30, 0.05);
+  background: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 10px 24px rgba(37, 37, 30, 0.04);
   transform: translateY(-1px);
 }
 
 .project-list-thumb {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 20px;
+  border-radius: 22px;
   background: #dfe3eb;
 }
 
 .project-list-copy {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 0 2px;
+  gap: 8px;
+  padding: 0 6px 0 6px;
 }
 
 .project-list-label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: -0.14px;
+  letter-spacing: -0.15px;
   line-height: 1.4;
   color: var(--ink-section);
 }
 
 .project-list-title {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 700;
-  letter-spacing: -0.24px;
-  line-height: 1.36;
+  letter-spacing: -0.04em;
+  line-height: 1.34;
   color: var(--ink);
 }
 
@@ -498,7 +503,7 @@ body.fade-out {
   font-size: 15px;
   font-weight: 400;
   letter-spacing: -0.15px;
-  line-height: 1.54;
+  line-height: 1.6;
   color: var(--ink-section);
 }
 
@@ -727,7 +732,7 @@ body.fade-out {
   .nav-link { padding: 12px 16px; font-size: 16px; }
 
   .intro-content { padding: 24px 20px; gap: 40px; }
-  .projects-page { padding: 20px; }
+  .projects-page { padding: 24px 20px; }
   .projects-grid { grid-template-columns: 1fr; gap: 20px; }
   .project-list-title { font-size: 20px; }
   .project-hero { padding: 20px; }
