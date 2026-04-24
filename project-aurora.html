@@ -40,7 +40,7 @@
         <p class="project-hero-label">프로젝트 1</p>
         <h1 class="project-hero-title">마트 상품 결품 알림 및 통계 서비스</h1>
       </div>
-      <p class="project-hero-right">모바일 결품 알림 화면과 결품 통계 PC·Mobile 대시보드를 기획 및 디자인했습니다.</p>
+      <p class="project-hero-right">대형마트 현장 직원이 받아볼 상품 결품 알림 화면과 관리자가 확인할 결품 통계 대시보드를 기획 및 디자인했습니다.</p>
     </div>
 
     <main class="project-content">
@@ -48,16 +48,20 @@
       <!-- 메타 -->
       <div class="meta-bar">
         <div class="meta-item">
-          <p class="meta-label">키워드</p>
-          <p class="meta-value">매장 운영, Vision AI, 모바일 알림, 대시보드</p>
+          <p class="meta-label">카테고리</p>
+          <p class="meta-value">매장 운영</p>
         </div>
         <div class="meta-item">
           <p class="meta-label">프로젝트 기간</p>
           <p class="meta-value">2025. 7. 10 ~ 7. 31</p>
         </div>
         <div class="meta-item">
+          <p class="meta-label">담당 업무</p>
+          <p class="meta-value">모바일 알림, 대시보드 기획 및 디자인</p>
+        </div>
+        <div class="meta-item">
           <p class="meta-label">팀</p>
-          <p class="meta-value">PM 1, <strong>프로덕트 디자이너 1</strong>, AI 엔지니어 1, 프론트엔드 개발자 1, 백엔드 개발자 1</p>
+          <p class="meta-value">PM 1, 프로덕트 디자이너 1, AI 엔지니어 1, 프론트엔드 개발자 1, 백엔드 개발자 1</p>
         </div>
       </div>
 
@@ -68,14 +72,13 @@
           <div class="section-text-group">
             <div class="section-label-heading">
               <p class="section-label">문제 상황</p>
-              <h2 class="section-heading">상품 결품이 지속된다면?</h2>
+              <h2 class="section-heading">상품 결품으로 인한 비효율</h2>
             </div>
-            <p class="section-body">매대 결품 상태를 인지할 수 있는 시스템이 없어 결품 발생 시점을 특정하지 못하고 현장 직원의 수동 점검에 의존해야 하는 구조였습니다. 이로 인해 매대 순회 중심의 비효율적인 운영이 지속됐으며 결과적으로 재고 보충 타이밍 지연, 매출 손실 그리고 상황 대응 및 의사결정 속도가 늦어지는 문제가 발생했습니다.</p>
+            <p class="section-body">기존엔 매대 결품을 인지할 수 있는 시스템이 없어, 결품 발생 시점을 특정하지 못하고 현장 직원의 수동 점검에 의존해야했습니다. 이로 인해 매대 순회 중심의 비효율적인 운영이 지속됐으며 결과적으로 재고 보충 타이밍 지연, 매출 손실, 그리고 상황 대응 및 의사결정 속도가 늦어지는 문제가 발생했습니다.</p>
           </div>
           <div class="section-bullets">
-            <span>· 결품 발생 시점을 알 수 없어 대응 지연</span>
-            <span>· 매대 상태 확인을 위해 불필요한 동선 낭비</span>
-            <span>· 결품 → 충진 → 판매까지의 단계가 데이터로 남지 않음</span>
+            <span>· 정확한 결품 발생 시점을 알 수 없어 대응 지연</span>
+            <span>· 매대 상태 확인을 위해 현장 직원의 불필요한 동선 낭비</span>
           </div>
         </div>
       </div>
@@ -88,12 +91,11 @@
               <p class="section-label">문제 정의</p>
               <h2 class="section-heading">결품 알림을 확인한 뒤, 그 후엔?</h2>
             </div>
-            <p class="section-body">이 프로젝트의 핵심 문제는 단순히 "알림으로 결품 상황을 알려주는 것"이 아니라, 결품 발생 이후의 단계가 측정되지 않는 구조에 있었습니다.</p>
+            <p class="section-body">초기 목표는 'AI가 결품을 인식한 뒤, 결품 알림을 전송하는 것'이었습니다. 그렇다면 남길 수 있는 데이터는 '언제, 어디서, 얼마나 많은 결품이 발생했는가?' 뿐이었습니다. 이 프로젝트의 핵심 문제는 단순히 "알림으로 결품 상황을 알려주는 것"이 아니라, 결품 발생 이후의 단계가 측정되지 않는 구조에 있었습니다.</p>
           </div>
           <div class="section-bullets">
-            <span>· 결품 이후 현황이 추적되지 않음</span>
-            <span>· 언제, 어디서, 얼마나 오래 결품이 발생했는지 알 수 없음</span>
-            <span>· 병목이 어디서 발생하는지 파악 불가</span>
+            <span>· 결품 이후 상태(결품 → 충진/재고 없음)가 추적되지 않음</span>
+            <span>· 결품이 얼마나 지속됐는지 알 수 없으며 어느 단계가 병목인지 파악 불가</span>
           </div>
         </div>
         <div class="section-img" data-notion-image-index="2"></div>
@@ -105,10 +107,14 @@
         <div class="section-copy">
           <div class="section-text-group">
             <div class="section-label-heading">
-              <p class="section-label">문제 해결 1</p>
-              <h2 class="section-heading">결품 → 행동 → 결과, 단계별 현황 기록</h2>
+              <p class="section-label">문제 해결</p>
+              <h2 class="section-heading">단계별 현황 기록 ‘결품 → 행동 → 결과’</h2>
             </div>
-            <p class="section-body">각 단계 발생 시간을 측정 가능하도록 구조를 설계하여, 운영 프로세스를 데이터로 변환하고자 했습니다.</p>
+            <p class="section-body">‘결품’으로 인해 발생하는 상황과 현장 직원이 취할 수 있는 행동을 단계별로 구체화했습니다. 각 단계가 정확히 언제 발생했는지 파악할 수 있는 구조로 설계하여 상품 결품 처리 프로세스를 데이터로 변환하고자 했습니다.</p>
+          </div>
+          <div class="section-bullets">
+            <span>· 결품 이후 상태(결품 → 충진/재고 없음) 기록 가능</span>
+            <span>· 결품이 얼마나 지속됐는지, 어느 단계가 병목 구간인지 파악 가능</span>
           </div>
         </div>
       </div>

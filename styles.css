@@ -37,6 +37,10 @@ body[data-project-slot] {
   --img-bg: #e8dfd2;
 }
 
+body[data-project-slot="project1"] {
+  --img-bg: #87856f;
+}
+
 body.intro-page {
   --bg: #eef1f6;
   --ink-section: #7e8796;
@@ -702,6 +706,82 @@ body.fade-out {
   letter-spacing: -0.15px;
   line-height: 1.54;
   color: var(--ink-bullets);
+}
+
+body[data-project-slot="project1"] .project-hero-label {
+  font-size: 15px;
+  letter-spacing: -0.15px;
+  line-height: 1.4;
+}
+
+body[data-project-slot="project1"] .project-hero-title {
+  font-size: 30px;
+  letter-spacing: -0.04em;
+  line-height: 1.28;
+}
+
+body[data-project-slot="project1"] .project-hero-right {
+  font-size: 16px;
+  letter-spacing: -0.16px;
+  line-height: 1.6;
+  color: var(--ink-meta);
+}
+
+body[data-project-slot="project1"] .meta-label {
+  font-size: 14px;
+  letter-spacing: -0.14px;
+}
+
+body[data-project-slot="project1"] .meta-value {
+  font-size: 15px;
+  letter-spacing: -0.15px;
+}
+
+body[data-project-slot="project1"] .section-copy {
+  gap: 28px;
+}
+
+body[data-project-slot="project1"] .section-label {
+  font-size: 14px;
+  letter-spacing: -0.14px;
+  line-height: 1.4;
+}
+
+body[data-project-slot="project1"] .section-heading {
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  line-height: 1.4;
+}
+
+body[data-project-slot="project1"] .section-body {
+  font-size: 16px;
+  letter-spacing: -0.16px;
+  line-height: 1.68;
+}
+
+body[data-project-slot="project1"] .section-bullets {
+  padding-top: 14px;
+  font-weight: 500;
+}
+
+body[data-project-slot="project1"] .section-block:nth-of-type(1) .section-img,
+body[data-project-slot="project1"] .section-block:nth-of-type(2) .section-img {
+  background-color: #87856f;
+}
+
+body[data-project-slot="project1"] .section-block:nth-of-type(3) .section-img,
+body[data-project-slot="project1"] .section-block:nth-of-type(4) .section-img {
+  background-color: #efc4f1;
+}
+
+body[data-project-slot="project1"] .section-block:nth-of-type(5) .section-img {
+  background-color: #bec7da;
+}
+
+body[data-project-slot="project1"] .section-block:nth-of-type(6) .section-img,
+body[data-project-slot="project1"] .section-block:nth-of-type(7) .section-img,
+body[data-project-slot="project1"] .section-block:nth-of-type(8) .section-img {
+  background-color: #293240;
 }
 
 /* ── Responsive ─────────────────────────────────────────── */
