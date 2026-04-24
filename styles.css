@@ -337,7 +337,7 @@ body.fade-out {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 44px;
+  gap: 36px;
   padding: 42px 0 118px;
 }
 
@@ -352,8 +352,9 @@ body.fade-out {
 }
 
 .intro-bio {
-  flex: 0 0 612px;
-  max-width: 612px;
+  flex: 1;
+  min-width: 0;
+  max-width: none;
   padding: 2px 0 0;
   font-size: 16px;
   font-weight: 400;
