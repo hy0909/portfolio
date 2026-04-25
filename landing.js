@@ -16,12 +16,11 @@ function createContactModal() {
   overlay.className = 'contact-modal-overlay';
   overlay.setAttribute('hidden', '');
   overlay.innerHTML = `
-    <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+    <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-label">
       <button class="contact-modal-close" type="button" aria-label="닫기">×</button>
-      <p class="contact-modal-label">문의</p>
-      <h2 class="contact-modal-title" id="contact-modal-title">이메일로 연락주세요</h2>
-      <p class="contact-modal-email">kimhy0909@gmail.com</p>
-      <a class="contact-modal-action" href="mailto:kimhy0909@gmail.com">메일 보내기</a>
+      <p class="contact-modal-label" id="contact-modal-label">문의</p>
+      <p class="contact-modal-email">pongg005@naver.com</p>
+      <button class="contact-modal-action" type="button">복사</button>
     </div>
   `;
 
@@ -32,11 +31,9 @@ function createContactModal() {
 function openContactModal(email) {
   const overlay = createContactModal();
   const emailNode = overlay.querySelector('.contact-modal-email');
-  const actionNode = overlay.querySelector('.contact-modal-action');
   const closeNode = overlay.querySelector('.contact-modal-close');
 
   if (emailNode && email) emailNode.textContent = email;
-  if (actionNode && email) actionNode.setAttribute('href', `mailto:${email}`);
 
   overlay.hidden = false;
   document.body.classList.add('contact-modal-open');
@@ -58,16 +55,44 @@ function closeContactModal() {
 
 function initContactModal() {
   const overlay = createContactModal();
+  const actionNode = overlay.querySelector('.contact-modal-action');
 
   document.querySelectorAll('a[href^="mailto:"], .list-item[data-href^="mailto:"]').forEach(link => {
     link.addEventListener('click', e => {
-      const href = link.getAttribute('data-href') || link.getAttribute('href');
-      const email = getEmailFromHref(href);
-      if (!email) return;
       e.preventDefault();
-      openContactModal(email);
+      openContactModal('pongg005@naver.com');
     });
   });
+
+  if (actionNode) {
+    actionNode.addEventListener('click', async () => {
+      const email = overlay.querySelector('.contact-modal-email')?.textContent?.trim() || 'pongg005@naver.com';
+
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const tempInput = document.createElement('input');
+          tempInput.value = email;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          tempInput.remove();
+        }
+
+        actionNode.textContent = '복사됨';
+        setTimeout(() => {
+          actionNode.textContent = '복사';
+        }, 1200);
+      } catch (error) {
+        console.error(error);
+        actionNode.textContent = '실패';
+        setTimeout(() => {
+          actionNode.textContent = '복사';
+        }, 1200);
+      }
+    });
+  }
 
   overlay.addEventListener('click', e => {
     if (e.target === overlay || e.target.closest('.contact-modal-close')) {
