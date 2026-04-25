@@ -2,9 +2,89 @@
    landing.js — interactions for KIMHYEYEON portfolio
    ────────────────────────────────────────────────────────── */
 
+/* 0. Contact modal ──────────────────────────────────────── */
+function getEmailFromHref(href) {
+  if (!href || !href.startsWith('mailto:')) return '';
+  return href.replace('mailto:', '').split('?')[0];
+}
+
+function createContactModal() {
+  const existing = document.querySelector('.contact-modal-overlay');
+  if (existing) return existing;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'contact-modal-overlay';
+  overlay.setAttribute('hidden', '');
+  overlay.innerHTML = `
+    <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button class="contact-modal-close" type="button" aria-label="닫기">×</button>
+      <p class="contact-modal-label">문의</p>
+      <h2 class="contact-modal-title" id="contact-modal-title">이메일로 연락주세요</h2>
+      <p class="contact-modal-email">kimhy0909@gmail.com</p>
+      <a class="contact-modal-action" href="mailto:kimhy0909@gmail.com">메일 보내기</a>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+  return overlay;
+}
+
+function openContactModal(email) {
+  const overlay = createContactModal();
+  const emailNode = overlay.querySelector('.contact-modal-email');
+  const actionNode = overlay.querySelector('.contact-modal-action');
+  const closeNode = overlay.querySelector('.contact-modal-close');
+
+  if (emailNode && email) emailNode.textContent = email;
+  if (actionNode && email) actionNode.setAttribute('href', `mailto:${email}`);
+
+  overlay.hidden = false;
+  document.body.classList.add('contact-modal-open');
+  requestAnimationFrame(() => {
+    overlay.classList.add('is-open');
+  });
+  if (closeNode) closeNode.focus();
+}
+
+function closeContactModal() {
+  const overlay = document.querySelector('.contact-modal-overlay');
+  if (!overlay) return;
+  overlay.classList.remove('is-open');
+  document.body.classList.remove('contact-modal-open');
+  setTimeout(() => {
+    overlay.hidden = true;
+  }, 180);
+}
+
+function initContactModal() {
+  const overlay = createContactModal();
+
+  document.querySelectorAll('a[href^="mailto:"], .list-item[data-href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('data-href') || link.getAttribute('href');
+      const email = getEmailFromHref(href);
+      if (!email) return;
+      e.preventDefault();
+      openContactModal(email);
+    });
+  });
+
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay || e.target.closest('.contact-modal-close')) {
+      closeContactModal();
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeContactModal();
+    }
+  });
+}
+
 /* 1. Fade-out navigation ─────────────────────────────────── */
 function navigateTo(href) {
-  if (!href || href.startsWith('mailto:')) {
+  if (!href) {
     window.location.href = href;
     return;
   }
@@ -22,6 +102,7 @@ function initListItems() {
 
     item.style.cursor = 'pointer';
     item.addEventListener('click', e => {
+      if (href && href.startsWith('mailto:')) return;
       e.preventDefault();
       navigateTo(href);
     });
@@ -95,6 +176,7 @@ function initIntroRows() {
 
 /* ── Init ────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  initContactModal();
   initListItems();
   initNavLinks();
   initScrollReveal();
