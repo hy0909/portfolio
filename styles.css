@@ -271,6 +271,7 @@ body.fade-out {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  margin: 0 -16px;
   transition:
     background 0.2s ease,
     border-radius 0.2s ease,
